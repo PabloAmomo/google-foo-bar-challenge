@@ -6,6 +6,9 @@ import java.util.List;
 import java.util.Map;
 
 public class Solution {
+    // /------
+    // see Burnside's lemma... :-)
+    // -------/
     public static void cycleP(int size, int max, List<Integer> part, List<List<Integer>> result) {
         if (size == 0) {
             result.add(0, new ArrayList<>(part));
