@@ -1,2 +1,2 @@
-# google-foo-bar-challenge
+# Google Foo Bar Challenge
 JAVA soutions for Google Foo Bar Challenge
