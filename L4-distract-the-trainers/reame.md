@@ -1,5 +1,5 @@
-Distract the Trainers
-=====================
+# Distract the Trainers
+
 The time for the mass escape has come, and you need to distract the bunny trainers so that the workers can make it out! Unfortunately for you, they're watching the bunnies closely. Fortunately, this means they haven't realized yet that the space station is about to explode due to the destruction of the LAMBCHOP doomsday device. Also fortunately, all that time you spent working as first a minion and then a henchman means hat you know the trainers are fond of bananas. And gambling. And thumb wrestling.
 
 The bunny trainers, being bored, readily accept your suggestion to play the Banana Games.
@@ -8,7 +8,7 @@ You will set up simultaneous thumb wrestling matches. In each match, two trainer
 
 For example, if the two trainers that were paired started with 3 and 5 bananas, after the first round of thumb wrestling they will have 6 and 2 (the one with 3 bananas wins and gets 3 bananas from the loser). After the second round, they will have 4 and 4 (the one with 6 bananas loses 2 bananas). At that point they stop and get back to training bunnies.
 
-How is all this useful to distract the bunny trainers? Notice that if the trainers had started with 1 and 4 bananas, then they keep thumb wrestling! 
+How is all this useful to distract the bunny trainers? Notice that if the trainers had started with 1 and 4 bananas, then they keep thumb wrestling!
 1, 4 -> 2, 3 -> 4, 1 -> 3, 2 -> 1, 4 -> 2, 3 -> 4, 1 -> 3, 2 -> 1, 4 -> and so on.
 
 Now your plan is clear. You must pair up the trainers in such a way that the maximum number of trainers go into an infinite thumb wrestling loop!
@@ -17,13 +17,13 @@ Write a function solution(banana_list) which, given a list of positive integers 
 
 The number of trainers will be at least 1 and not more than 100, and the number of bananas each trainer starts with will be a positive integer no more than 1073741823 (i.e. 2^30 -1). Some of them stockpile a LOT of bananas.
 
-Test cases
-==========
-Input:    solution.solution(1,1)
-Output:   2
+# Test cases
 
-Input:    Solution.solution([1, 7, 3, 21, 13, 19])
-Output:   0
+Input: solution.solution(1,1)
+Output: 2
+
+Input: Solution.solution([1, 7, 3, 21, 13, 19])
+Output: 0
 
 Ideas:
 Probar quitar del array los 1 to 1073741823
