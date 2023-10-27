@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Solution {
-    private static void cycleP(int size, int max, List<Integer> part, List<List<Integer>> result) {
+    public static void cycleP(int size, int max, List<Integer> part, List<List<Integer>> result) {
         if (size == 0) {
             result.add(0, new ArrayList<>(part));
             return;
@@ -54,7 +54,7 @@ public class Solution {
         return total;
     }
 
-    private static String solution(int w, int h, int s) {
+    public static String solution(int w, int h, int s) {
         List<List<Integer>> wResult = new ArrayList<>();
         List<List<Integer>> hResult = new ArrayList<>();
 
@@ -150,11 +150,14 @@ public class Solution {
         String response = "";
         for (int i = 0; i < test.length; i++) {
             long[][] value = test[i];
-            String val[] = { "2130536585704570302966", "48337501605818559862924286009469010532883944673595031561442959253297672970548096574261128112649493247389104674880" };
-            response = solution((int)value[0][0], (int)value[0][1], (int)value[0][2]);
-            System.out.println((String.valueOf(value[1][0] < 0 ? val[-1 -(int)value[1][0]] : value[1][0]).equals(response) ? "OK" : "KO") + " { "
-                    + Arrays.toString(value[0]) + " } -> Wait "
-                    + (value[1][0] < 0 ? val[-1 -(int)value[1][0]] : value[1][0]) + " response " + response);
+            String val[] = { "2130536585704570302966",
+                    "48337501605818559862924286009469010532883944673595031561442959253297672970548096574261128112649493247389104674880" };
+            response = solution((int) value[0][0], (int) value[0][1], (int) value[0][2]);
+            System.out.println(
+                    (String.valueOf(value[1][0] < 0 ? val[-1 - (int) value[1][0]] : value[1][0]).equals(response) ? "OK"
+                            : "KO") + " { "
+                            + Arrays.toString(value[0]) + " } -> Wait "
+                            + (value[1][0] < 0 ? val[-1 - (int) value[1][0]] : value[1][0]) + " response " + response);
         }
     }
 }
