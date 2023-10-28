@@ -153,12 +153,9 @@ public class Solution {
                 "48337501605818559862924286009469010532883944673595031561442959253297672970548096574261128112649493247389104674880"
         };
 
-        String response = "";
         for (int i = 0; i < tests.length; i++) {
-            long[][] value = tests[i];
-            response = solution((int) value[0][0], (int) value[0][1], (int) value[0][2]);
-
-            printTest(i + 1, response, "" + (value[1][0] < 0 ? specialValues[-1 - (int) value[1][0]] : value[1][0]));
+            printTest(i + 1, solution((int) tests[i][0][0], (int) tests[i][0][1], (int) tests[i][0][2]),
+                    "" + (tests[i][1][0] < 0 ? specialValues[-1 - (int) tests[i][1][0]] : tests[i][1][0]));
         }
     }
 

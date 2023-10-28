@@ -65,7 +65,7 @@ public class Solution {
   // ------------------------------------------------------------------------------------------------------------
   public static void main(String[] args) {
 
-    int[][][] test = {
+    int[][][] tests = {
         { { 1073741822, 4 }, { 0 } },
         { { 0, 0, 0 }, { 3 } },
         { { 10, 20 }, { 0 } },
@@ -82,13 +82,16 @@ public class Solution {
         { { 1, 1 }, { 2 } },
     };
 
-    int response = 0;
-    for (int i = 0; i < test.length; i++) {
-      int[][] value = test[i];
-      response = solution(value[0]);
-      System.out.println((value[1][0] == response ? "OK" : "KO") + " { " + Arrays.toString(value[0]) + " } -> Wait "
-          + value[1][0] + " response " + response);
+    for (int i = 0; i < tests.length; i++) {
+      printTest(i, "" + solution(tests[i][0]), tests[i][1][0] + "");
     }
 
+  }
+
+  private static void printTest(int index, String response, String expected) {
+    Boolean correct = (response.equals(expected));
+    System.out.println("------------------------------------------");
+    System.out.println(" Test " + index + " " + (correct ? "OK" : "KO") + " -> Response: " + response
+        + (correct ? "" : " (Expected: " + expected + ")"));
   }
 }

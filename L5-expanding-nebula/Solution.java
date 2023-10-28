@@ -90,10 +90,8 @@ public class Solution {
         };
         int[] responses = { 4, 254, 11567 };
 
-        int response = 0;
         for (int i = 0; i < tests.length; i++) {
-            response = solution(tests[i]);
-            printTest(i + 1, "" + response, "" + responses[i]);
+            printTest(i + 1, "" + solution(tests[i]), "" + responses[i]);
         }
     }
 

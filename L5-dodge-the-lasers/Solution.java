@@ -136,10 +136,8 @@ public class Solution {
         "7071067811865475244008443621048490392848359376884740365883398710664340510965287634336373882123111792158663000001965143958611"
     };
 
-    String response = "";
     for (int i = 0; i < tests.length; i++) {
-      response = solution(tests[i]);
-      printTest(i + 1, "" + response, "" + responses[i]);
+      printTest(i + 1, "" + solution(tests[i]), "" + responses[i]);
     }
   }
 
