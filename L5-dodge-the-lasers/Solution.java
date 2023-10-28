@@ -124,21 +124,29 @@ public class Solution {
   // TESTING
   // ------------------------------------------------------------------------------------------------------------
   public static void main(String[] args) {
-    String resp = "";
 
-    resp = solution("5");
-    System.out.println((resp.equals("19") ? "OK" : "KO") + " " + resp + " -> " + "19");
+    String[] tests = {
+        "5",
+        "77",
+        "100000000000000000000000000000000000000000000000000000000000000"
+    };
+    String[] responses = {
+        "19",
+        "4208",
+        "7071067811865475244008443621048490392848359376884740365883398710664340510965287634336373882123111792158663000001965143958611"
+    };
 
-    resp = solution("77");
-    System.out.println((resp.equals("4208") ? "OK" : "KO") + " " + resp + " -> " + "4208");
+    String response = "";
+    for (int i = 0; i < tests.length; i++) {
+      response = solution(tests[i]);
+      printTest(i + 1, "" + response, "" + responses[i]);
+    }
+  }
 
-    resp = solution("100000000000000000000000000000000000000000000000000000000000000");
-    System.out.println(
-        (resp.equals(
-            "7071067811865475244008443621048490392848359376884740365883398710664340510965287634336373882123111792158663000001965143958611")
-                ? "OK"
-                : "KO")
-            + " " + resp + " -> "
-            + "7071067811865475244008443621048490392848359376884740365883398710664340510965287634336373882123111792158663000001965143958611");
+  private static void printTest(int index, String response, String expected) {
+    Boolean correct = (response.equals(expected));
+    System.out.println("------------------------------------------");
+    System.out.println(" Test " + index + " " + (correct ? "OK" : "KO") + " -> Response: " + response
+        + (correct ? "" : " (Expected: " + expected + ")"));
   }
 }

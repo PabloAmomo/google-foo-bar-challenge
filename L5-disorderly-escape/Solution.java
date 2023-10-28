@@ -82,7 +82,7 @@ public class Solution {
     // ------------------------------------------------------------------------------------------------------------
     public static void main(String[] args) {
 
-        long[][][] test = {
+        long[][][] tests = {
                 { { 2, 3, 4 }, { 430 } },
                 { { 2, 2, 2 }, { 7 } },
                 { { 1, 1, 1 }, { 1 } },
@@ -149,18 +149,24 @@ public class Solution {
                 { { 8, 8, 3 }, { -1 } },
                 { { 12, 12, 8 }, { -2 } },
         };
+        String specialValues[] = {
+                "2130536585704570302966",
+                "48337501605818559862924286009469010532883944673595031561442959253297672970548096574261128112649493247389104674880"
+        };
 
         String response = "";
-        for (int i = 0; i < test.length; i++) {
-            long[][] value = test[i];
-            String val[] = { "2130536585704570302966",
-                    "48337501605818559862924286009469010532883944673595031561442959253297672970548096574261128112649493247389104674880" };
+        for (int i = 0; i < tests.length; i++) {
+            long[][] value = tests[i];
             response = solution((int) value[0][0], (int) value[0][1], (int) value[0][2]);
-            System.out.println(
-                    (String.valueOf(value[1][0] < 0 ? val[-1 - (int) value[1][0]] : value[1][0]).equals(response) ? "OK"
-                            : "KO") + " { "
-                            + Arrays.toString(value[0]) + " } -> Wait "
-                            + (value[1][0] < 0 ? val[-1 - (int) value[1][0]] : value[1][0]) + " response " + response);
+
+            printTest(i + 1, response, "" + (value[1][0] < 0 ? specialValues[-1 - (int) value[1][0]] : value[1][0]));
         }
+    }
+
+    private static void printTest(int index, String response, String expected) {
+        Boolean correct = (response.equals(expected));
+        System.out.println("------------------------------------------");
+        System.out.println(" Test " + index + " " + (correct ? "OK" : "KO") + " -> Response: " + response
+                + (correct ? "" : " (Expected: " + expected + ")"));
     }
 }
