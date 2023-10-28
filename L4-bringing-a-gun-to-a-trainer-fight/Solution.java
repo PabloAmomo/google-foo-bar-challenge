@@ -1,8 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -80,9 +78,8 @@ public class Solution {
   // TESTING
   // ------------------------------------------------------------------------------------------------------------
   public static void main(String[] args) {
-    int response = 0;
 
-    int[][][] test = {
+    int[][][] tests = {
         { { 3, 2 }, { 1, 1 }, { 2, 1 }, { 4 }, { 7 } },
         { { 300, 275 }, { 150, 150 }, { 185, 100 }, { 500 }, { 9 } },
         { { 2, 5 }, { 1, 2 }, { 1, 4 }, { 11 }, { 27 } },
@@ -95,30 +92,15 @@ public class Solution {
         { { 300, 275 }, { 150, 150 }, { 180, 100 }, { 500 }, { 9 } },
     };
 
-    System.out.println(
-        "--------------------------------------------------------------------------------------------------------------------------------------------------------------------");
-    System.out.println(
-        "--------------------------------------------------------------------------------------------------------------------------------------------------------------------");
-
-    for (int i = 0; i < test.length; i++) {
-      int[][] value = test[i];
-      response = solution(value[0], value[1], value[2], value[3][0]);
-      printResult(
-          "{ " + ArrIntToString(value[0]) + " }, { " + ArrIntToString(value[1]) + " }, { " + ArrIntToString(value[2])
-              + " }, " + value[3][0] + ") -> Wait " + value[4][0] + "",
-          response, value[4][0]);
+    for (int i = 0; i < tests.length; i++) {
+      printTest(i + 1, "" + solution(tests[i][0], tests[i][1], tests[i][2], tests[i][3][0]), "" + tests[i][4][0]);
     }
   }
 
-  public static void printResult(String r, int res, int check) {
-    System.out.println((res == check ? "OK" : "KO") + " (" + r + " result " + res + "");
-  }
-
-  public static String ArrIntToString(int[] array) {
-    return Arrays.stream(array).mapToObj(String::valueOf).collect(Collectors.joining(", "));
-  }
-
-  public static String ArrDoubleToString(double[] array) {
-    return Arrays.stream(array).mapToObj(String::valueOf).collect(Collectors.joining(", "));
+  private static void printTest(int index, String response, String expected) {
+    Boolean correct = (response.equals(expected));
+    System.out.println("------------------------------------------");
+    System.out.println(" Test " + index + " " + (correct ? "OK" : "KO") + " -> Response: " + response
+        + (correct ? "" : " (Expected: " + expected + ")"));
   }
 }

@@ -32,7 +32,18 @@ public class Solution {
   // TESTING
   // ------------------------------------------------------------------------------------------------------------
   public static void main(String[] args) {
-    System.out.println("{4,7}: " + solution("4", "7"));
-    System.out.println("{2,1}: " + solution("2", "1"));
+    String[][] tests = { { "4", "7" }, { "2", "1" } };
+    String[] responses = { "4", "1" };
+
+    for (int i = 0; i < tests.length; i++) {
+      printTest(i + 1, "" + solution(tests[i][0], tests[i][1]), "" + responses[i]);
+    }
+  }
+
+  private static void printTest(int index, String response, String expected) {
+    Boolean correct = (response.equals(expected));
+    System.out.println("------------------------------------------");
+    System.out.println(" Test " + index + " " + (correct ? "OK" : "KO") + " -> Response: " + response
+        + (correct ? "" : " (Expected: " + expected + ")"));
   }
 }

@@ -24,15 +24,18 @@ public class Solution {
   // TESTING
   // ------------------------------------------------------------------------------------------------------------
   public static void main(String[] args) {
-    int response = 0;
 
-    response = solution(13, 1);
-    System.out.println("value: (13,1) " + response); // 13
+    int[][] tests = { { 13, 1, 13 }, { 17, 4, 14 }, { 1, 20000, 391607840 } };
+    
+    for (int i = 0; i < tests.length; i++) {
+      printTest(i + 1, "" + solution(tests[i][0], tests[i][1]), "" + tests[i][2]);
+    }
+  }
 
-    response = solution(17, 4);
-    System.out.println("value: (17,4) " + response); // 14
-
-    response = solution(1, 20000);
-    System.out.println("value: (1,20000) " + response); // 391607840
+  private static void printTest(int index, String response, String expected) {
+    Boolean correct = (response.equals(expected));
+    System.out.println("------------------------------------------");
+    System.out.println(" Test " + index + " " + (correct ? "OK" : "KO") + " -> Response: " + response
+        + (correct ? "" : " (Expected: " + expected + ")"));
   }
 }

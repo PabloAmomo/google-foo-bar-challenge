@@ -36,12 +36,19 @@ public class Solution {
   // TESTING
   // ------------------------------------------------------------------------------------------------------------
   public static void main(String[] args) {
-    int response = 0;
 
-    response = solution(new int[] { 1, 1, 1 });
-    System.out.println("value: {1,1,1} " + response); // 1
+    int[][] tests = { { 1, 1, 1 }, { 1, 2, 3, 4, 5, 6 } };
+    int[] responses = { 1, 3 };
 
-    response = solution(new int[] { 1, 2, 3, 4, 5, 6 });
-    System.out.println("value: {1, 2, 3, 4, 5, 6} " + response); // 3
+    for (int i = 0; i < tests.length; i++) {
+      printTest(i + 1, "" + solution(tests[i]), "" + responses[i]);
+    }
+  }
+
+  private static void printTest(int index, String response, String expected) {
+    Boolean correct = (response.equals(expected));
+    System.out.println("------------------------------------------");
+    System.out.println(" Test " + index + " " + (correct ? "OK" : "KO") + " -> Response: " + response
+        + (correct ? "" : " (Expected: " + expected + ")"));
   }
 }

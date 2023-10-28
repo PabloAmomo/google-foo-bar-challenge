@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -48,55 +49,34 @@ public class Solution {
     // TESTING
     // ------------------------------------------------------------------------------------------------------------
     public static void main(String[] args) {
-        List<Problem> problems = new ArrayList<>();
-        problems.add(new Problem(5, new int[] { 7, 3, 5, 1 }, new int[] { 15, 7, 6, 3 }));
-        problems.add(new Problem(3, new int[] { 7, 3, 5, 1 }, new int[] { -1, 7, 6, 3 }));
-        problems.add(new Problem(5, new int[] { 19, 14, 28 }, new int[] { 21, 15, 29 }));
 
-        for (int index = 0; index < problems.size(); index++) {
-            Problem item = problems.get(index);
-            int[] resp = solution(item.h, item.q);
-            System.out.println("Problem " + index + ": (Expected: " + arrayToString(item.response) + ") -> "
-                    + arrayToString(resp) +
-                    (arraysAreEqual(item.response, resp) ? " OK" : " BAD !!!"));
+        List<Test> tests = new ArrayList<>();
+        tests.add(new Test(5, new int[] { 7, 3, 5, 1 }, new int[] { 15, 7, 6, 3 }));
+        tests.add(new Test(3, new int[] { 7, 3, 5, 1 }, new int[] { -1, 7, 6, 3 }));
+        tests.add(new Test(5, new int[] { 19, 14, 28 }, new int[] { 21, 15, 29 }));
+
+        for (int index = 0; index < tests.size(); index++) {
+            Test item = tests.get(index);
+            printTest(index + 1, Arrays.toString(solution(item.h, item.q)), Arrays.toString(item.response));
         }
     }
 
-    static class Problem {
+    private static void printTest(int index, String response, String expected) {
+        Boolean correct = (response.equals(expected));
+        System.out.println("------------------------------------------");
+        System.out.println(" Test " + index + " " + (correct ? "OK" : "KO") + " -> Response: " + response
+                + (correct ? "" : " (Expected: " + expected + ")"));
+    }
+
+    static class Test {
         int h;
         int[] q;
         int[] response;
 
-        Problem(int h, int[] q, int[] response) {
+        Test(int h, int[] q, int[] response) {
             this.h = h;
             this.q = q;
             this.response = response;
         }
-    }
-
-    // Función para convertir un arreglo de enteros en una cadena
-    static String arrayToString(int[] arr) {
-        StringBuilder sb = new StringBuilder("[");
-        for (int i = 0; i < arr.length; i++) {
-            sb.append(arr[i]);
-            if (i < arr.length - 1) {
-                sb.append(", ");
-            }
-        }
-        sb.append("]");
-        return sb.toString();
-    }
-
-    // Función para verificar si dos arreglos de enteros son iguales
-    static boolean arraysAreEqual(int[] arr1, int[] arr2) {
-        if (arr1.length != arr2.length) {
-            return false;
-        }
-        for (int i = 0; i < arr1.length; i++) {
-            if (arr1[i] != arr2[i]) {
-                return false;
-            }
-        }
-        return true;
     }
 }
