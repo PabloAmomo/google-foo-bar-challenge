@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -70,34 +71,37 @@ public class Solution {
     // ------------------------------------------------------------------------------------------------------------
     public static void main(String[] args) {
 
-        boolean[][] g1 = { { true, false, true }, { false, true, false }, { true, false, true } };
-        int r1 = 4;
-
-        boolean[][] g2 = {
-                { true, false, true, false, false, true, true, true },
-                { true, false, true, false, false, false, true, false },
-                { true, true, true, false, false, false, true, false },
-                { true, false, true, false, false, false, true, false },
-                { true, false, true, false, false, true, true, true }
+        boolean[][][] tests = {
+                {
+                        { true, false, true }, { false, true, false }, { true, false, true }
+                },
+                {
+                        { true, false, true, false, false, true, true, true },
+                        { true, false, true, false, false, false, true, false },
+                        { true, true, true, false, false, false, true, false },
+                        { true, false, true, false, false, false, true, false },
+                        { true, false, true, false, false, true, true, true }
+                },
+                {
+                        { true, true, false, true, false, true, false, true, true, false },
+                        { true, true, false, false, false, false, true, true, true, false },
+                        { true, true, false, false, false, false, false, false, false, true },
+                        { false, true, false, false, false, false, true, true, false, false }
+                }
         };
-        int r2 = 254;
+        int[] responses = { 4, 254, 11567 };
 
-        boolean[][] g3 = {
-                { true, true, false, true, false, true, false, true, true, false },
-                { true, true, false, false, false, false, true, true, true, false },
-                { true, true, false, false, false, false, false, false, false, true },
-                { false, true, false, false, false, false, true, true, false, false }
-        };
-        int r3 = 11567;
-
-        System.out.println("------------------------------------------");
-        System.out.println(" T1 -> " + r1 + " = " + solution(g1));
-
-        System.out.println("------------------------------------------");
-        System.out.println(" T2 -> " + r2 + " = " + solution(g2));
-
-        System.out.println("------------------------------------------");
-        System.out.println(" T3 -> " + r3 + " = " + solution(g3));
+        int response = 0;
+        for (int i = 0; i < tests.length; i++) {
+            response = solution(tests[i]);
+            printTest(i + 1, "" + response, "" + responses[i]);
+        }
     }
 
+    private static void printTest(int index, String response, String expected) {
+        Boolean correct = (response.equals(expected));
+        System.out.println("------------------------------------------");
+        System.out.println(" Test " + index + " " + (correct ? "OK" : "KO") + " -> Response: " + response
+                + (correct ? "" : " (Expected: " + expected + ")"));
+    }
 }
