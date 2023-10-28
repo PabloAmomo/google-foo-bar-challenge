@@ -62,7 +62,12 @@ public class Solution {
 
         return validValues.values().stream().mapToInt(Integer::intValue).sum();
     }
+    // solution end here
+    // ------------------------------------------------------------------------------------------------------------
 
+    // ------------------------------------------------------------------------------------------------------------
+    // TESTING
+    // ------------------------------------------------------------------------------------------------------------
     public static void main(String[] args) {
 
         boolean[][] g1 = { { true, false, true }, { false, true, false }, { true, false, true } };
