@@ -1,4 +1,5 @@
 # This is the decoded message received when finishing the Level 5 challenge. :-)
+# Encoded in base 64, encrypted with XOR and key "pabloamomo"
 # 
 # Submitting solution...
 # 
