@@ -29,26 +29,4 @@ public class Solution {
 
     return count;
   }
-  // solution end here
-  // ------------------------------------------------------------------------------------------------------------
-
-  // ------------------------------------------------------------------------------------------------------------
-  // TESTING
-  // ------------------------------------------------------------------------------------------------------------
-  public static void main(String[] args) {
-
-    int[][] tests = { { 1, 1, 1 }, { 1, 2, 3, 4, 5, 6 } };
-    int[] responses = { 1, 3 };
-
-    for (int i = 0; i < tests.length; i++) {
-      printTest(i + 1, "" + solution(tests[i]), "" + responses[i]);
-    }
-  }
-
-  private static void printTest(int index, String response, String expected) {
-    Boolean correct = (response.equals(expected));
-    System.out.println("------------------------------------------");
-    System.out.println(" Test " + index + " " + (correct ? "OK" : "KO") + " -> Response: " + response
-        + (correct ? "" : " (Expected: " + expected + ")"));
-  }
 }

@@ -62,43 +62,4 @@ public class Solution {
 
         return validValues.values().stream().mapToInt(Integer::intValue).sum();
     }
-    // solution end here
-    // ------------------------------------------------------------------------------------------------------------
-
-    // ------------------------------------------------------------------------------------------------------------
-    // TESTING
-    // ------------------------------------------------------------------------------------------------------------
-    public static void main(String[] args) {
-
-        boolean[][][] tests = {
-                {
-                        { true, false, true }, { false, true, false }, { true, false, true }
-                },
-                {
-                        { true, false, true, false, false, true, true, true },
-                        { true, false, true, false, false, false, true, false },
-                        { true, true, true, false, false, false, true, false },
-                        { true, false, true, false, false, false, true, false },
-                        { true, false, true, false, false, true, true, true }
-                },
-                {
-                        { true, true, false, true, false, true, false, true, true, false },
-                        { true, true, false, false, false, false, true, true, true, false },
-                        { true, true, false, false, false, false, false, false, false, true },
-                        { false, true, false, false, false, false, true, true, false, false }
-                }
-        };
-        int[] responses = { 4, 254, 11567 };
-
-        for (int i = 0; i < tests.length; i++) {
-            printTest(i + 1, "" + solution(tests[i]), "" + responses[i]);
-        }
-    }
-
-    private static void printTest(int index, String response, String expected) {
-        Boolean correct = (response.equals(expected));
-        System.out.println("------------------------------------------");
-        System.out.println(" Test " + index + " " + (correct ? "OK" : "KO") + " -> Response: " + response
-                + (correct ? "" : " (Expected: " + expected + ")"));
-    }
 }

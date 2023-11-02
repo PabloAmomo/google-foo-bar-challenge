@@ -43,36 +43,4 @@ public class Solution {
 
         return response.toString();
     }
-    // solution end here
-    // ------------------------------------------------------------------------------------------------------------
-
-    // ------------------------------------------------------------------------------------------------------------
-    // TESTING
-    // ------------------------------------------------------------------------------------------------------------
-    public static void main(String[] args) {
-        int[][] tests = {
-                { 2, 0, 2, 2, 0 },
-                { -2, -3, 4, -5 },
-                { 0, 0, 0, 1 },
-                { 0, 0, 0, -1 },
-                { 0, 0, 0, -1, 100, 100 },
-                { 0, 2, 2, -4, -2, -2 },
-                { 0 },
-                { 1 },
-                { 1, 1, 1, 1, 1, 1 },
-                { 0, -1 },
-        };
-        String[] responses = { "8", "60", "1", "0", "10000", "32", "0", "1", "1", "0" };
-
-        for (int i = 0; i < tests.length; i++) {
-            printTest(i + 1, solution(tests[i]), responses[i]);
-        }
-    }
-
-    private static void printTest(int index, String response, String expected) {
-        Boolean correct = (response.equals(expected));
-        System.out.println("------------------------------------------");
-        System.out.println(" Test " + index + " " + (correct ? "OK" : "KO") + " -> Response: " + response
-                + (correct ? "" : " (Expected: " + expected + ")"));
-    }
 }
